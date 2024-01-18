@@ -41,7 +41,7 @@ const TransactionPage = async ({ params, searchParams }: { params: { id: number 
     };
 
     if (!transactions || !transactions[0] || !validateTransaction(transactions[0])) {
-        return <div>Transaction not found</div>;
+        return <div className=' bg-colorPrimaryBg h-screen mt-[1%] mx-[5%] flex justify-center items-center text-2xl font-bold border-x-4 '>Transaction not found</div>;
     }
 
     const transaction = transactions[0];

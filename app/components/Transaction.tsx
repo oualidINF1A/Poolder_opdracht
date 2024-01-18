@@ -42,18 +42,23 @@ const Transaction = ({transaction}:TransactionProps) => {
           <p>{truncateText(transaction.description, 20)}</p>
         </div>
 
-
+        <div className='flex justify-between'>
           <div className='flex gap-2'>
-            <form action={deleteTransaction}>
-                <input type="hidden" name="id" value={transaction.id}/>
-                <div className='flex gap-2'>
-                  <button type='submit' className='bg-red-500 text-white p-1 font-semibold rounded'>
-                      Delete
-                  </button>
-                </div>
-            </form>
-            <EditTransaction transaction={transaction}/>
-          </div>
+              <form action={deleteTransaction}>
+                  <input type="hidden" name="id" value={transaction.id}/>
+                  <div className='flex gap-2'>
+                    <button type='submit' className='bg-red-500 text-white p-1 font-semibold rounded'>
+                        Delete
+                    </button>
+                  </div>
+              </form>
+              <EditTransaction transaction={transaction}/>
+            </div>
+            <button onClick={() => router.push(`/transaction/${transaction.id}`)} className='bg-blue-500 text-white p-1 font-semibold rounded'>
+                View
+            </button>
+        </div>
+
 
 
 
