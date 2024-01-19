@@ -25,6 +25,7 @@ export async function addTransaction(formData) {
         return
     }
 
+
     revalidatePath('/transactions');
     return {message: 'Transaction added successfully'};
 }

@@ -24,7 +24,7 @@ const Transaction = ({transaction}:TransactionProps) => {
 
   return (
     <div key={transaction.id} 
-    className='hover:cursor-pointer hover:shadow hover:border-gray-300 border flex flex-col gap-2 p-2 sm:min-w-[250px] sm:max-w-[250px] max-h-[300px] md:min-w-[330px] xl:max-w-[430px] md:max-w-[330px] xl:min-w-[430px]'>
+    className='border flex flex-col gap-2 p-2 sm:min-w-[250px] sm:max-w-[250px] max-h-[300px] md:min-w-[330px] xl:max-w-[430px] md:max-w-[330px] xl:min-w-[430px]'>
 
         <div className='flex justify-between'>
             <h3 className='font-bold'>{transaction.title}</h3>
@@ -47,14 +47,14 @@ const Transaction = ({transaction}:TransactionProps) => {
               <form action={deleteTransaction}>
                   <input type="hidden" name="id" value={transaction.id}/>
                   <div className='flex gap-2'>
-                    <button type='submit' className='bg-red-500 text-white p-1 font-semibold rounded'>
+                    <button type='submit' className='bg-red-500 hover:bg-red-600 text-white p-1 font-semibold rounded'>
                         Delete
                     </button>
                   </div>
               </form>
               <EditTransaction transaction={transaction}/>
             </div>
-            <button onClick={() => router.push(`/transaction/${transaction.id}`)} className='bg-blue-500 text-white p-1 font-semibold rounded'>
+            <button onClick={() => router.push(`/transaction/${transaction.id}`)}className="bg-blue-500 hover:bg-blue-700 text-white font-bold  p-1 px-2 rounded">
                 View
             </button>
         </div>

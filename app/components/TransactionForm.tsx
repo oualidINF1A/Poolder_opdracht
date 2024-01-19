@@ -1,10 +1,18 @@
-import React from 'react'
+'use client';
+import React, { useRef } from 'react'
 import { addTransaction } from '../server-actions/addTransaction'
 
 const TransactionForm = () => {
+  const formRef = useRef<HTMLFormElement>(null);
 
   return (
-    <form action={addTransaction} className='mb-6 px-[5%] py-8 flex flex-col gap-2 bg-colorPrimaryBg border-2'>
+    <form action={async (formData) =>{
+      await addTransaction(formData)
+      formRef.current?.reset()
+    }
+    } 
+      ref={formRef}
+    id='transaction_form' className='mb-6 px-[5%] py-8 flex flex-col gap-2 bg-colorPrimaryBg border-2'>
         <h2 className='font-bold text-xl'>Add a transaction:</h2>
         <div>
           <label htmlFor="title" className='block text-black font-semibold mb-2'>Title:</label>
